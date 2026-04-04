@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appName">Michigan Trout Report</string>
+    <string name="launcherName">Trout Report</string>
+    <string name="assetStatements">
+        [{
+            \"relation\": [\"delegate_permission/common.handle_all_urls\"],
+            \"target\": {
+                \"namespace\": \"android_app\",
+                \"package_name\": \"com.chrisizworski.troutreport\",
+                \"sha256_cert_fingerprints\": [\"REPLACE_WITH_YOUR_SHA256_FINGERPRINT\"]
+            }
+        }]
+    </string>
+    <string name="providerAuthority">com.chrisizworski.troutreport.fileprovider</string>
+    <string name="fallbackType">customtabs</string>
+    <string name="orientation">default</string>
+    <string name="shortcut_map">Stream Map</string>
+    <string name="shortcut_map_long">Michigan Trout Stream Map</string>
+    <string name="shortcut_top10">Top 10</string>
+    <string name="shortcut_top10_long">Top 10 Rivers Right Now</string>
+    <string name="shortcut_hex">Hex Tracker</string>
+    <string name="shortcut_hex_long">AuSable Hex Hatch Tracker</string>
+</resources>
