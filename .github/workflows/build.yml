@@ -24,11 +24,29 @@ jobs:
     - name: Generate Gradle Wrapper
       run: gradle wrapper --gradle-version 8.5
 
-    - name: Build Release AAB
+    - name: Generate Upload Keystore
+      run: |
+        keytool -genkeypair -v \
+          -keystore app/upload-keystore.jks \
+          -alias upload \
+          -keyalg RSA \
+          -keysize 2048 \
+          -validity 10000 \
+          -storepass troutreport2026 \
+          -keypass troutreport2026 \
+          -dname "CN=Chris Izworski, O=Freighter View Farms, L=Bay City, ST=Michigan, C=US"
+
+    - name: Build Signed Release AAB
       run: ./gradlew bundleRelease
 
-    - name: Upload AAB
+    - name: Upload Signed AAB
       uses: actions/upload-artifact@v4
       with:
-        name: michigan-trout-report
+        name: michigan-trout-report-signed
         path: app/build/outputs/bundle/release/app-release.aab
+
+    - name: Upload Keystore
+      uses: actions/upload-artifact@v4
+      with:
+        name: upload-keystore
+        path: app/upload-keystore.jks
